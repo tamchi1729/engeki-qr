@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    window.onload = function() {
+      const links = [
+        "https://your-instagram.com", // 当たり
+        "https://other1.com",
+        "https://other2.com"
+      ];
+
+      const weights = [0.6, 0.2, 0.2]; // 確率
+
+      let rand = Math.random();
+      let sum = 0;
+
+      for (let i = 0; i < links.length; i++) {
+        sum += weights[i];
+        if (rand < sum) {
+          window.location.href = links[i];
+          break;
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <p>運試し中...</p>
+</body>
+</html>
