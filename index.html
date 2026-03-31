@@ -1,30 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <script>
-    window.onload = function() {
-      const links = [
-        "https://www.instagram.com/nupals_engeki/", // 当たり
-        "https://www.instagram.com/niigatayakka_nexus/",
-        "https://portal.gakuyu.nupals.ac.jp/"
-      ];
-
-      const weights = [0.6, 0.2, 0.2]; // 確率
-
-      let rand = Math.random();
-      let sum = 0;
-
-      for (let i = 0; i < links.length; i++) {
-        sum += weights[i];
-        if (rand < sum) {
-          window.location.href = links[i];
-          break;
-        }
-      }
+  <meta charset="UTF-8">
+  <title>演劇サークル運試し</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #111;
+      color: white;
     }
-  </script>
+    .result {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+    .sub {
+      font-size: 1em;
+      margin-top: 10px;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
-  <p>運試し中...</p>
+
+<div>
+  <div id="result" class="result">判定中...</div>
+  <div class="sub">※もう一回やると結果変わるかも</div>
+</div>
+
+<script>
+  const links = [
+    "https://www.instagram.com/nupals_engeki/", // 自分のインスタ（当たり）
+    "https://www.instagram.com/niigatayakka_nexus/",
+    "https://portal.gakuyu.nupals.ac.jp"
+  ];
+
+  // 当たり確率（ここ調整できる）
+  const weights = [0.7, 0.15, 0.15];
+
+  const messages = [
+    "🎯 当たり！",
+    "💀 ハズレ！",
+    "🤡 微妙…"
+  ];
+
+  function weightedRandom(weights) {
+    let rand = Math.random();
+    let sum = 0;
+    for (let i = 0; i < weights.length; i++) {
+      sum += weights[i];
+      if (rand < sum) return i;
+    }
+  }
+
+  const index = weightedRandom(weights);
+
+  // 表示
+  document.getElementById("result").innerText = messages[index];
+
+  // 1秒後に遷移
+  setTimeout(() => {
+    window.location.href = links[index];
+  }, 1000);
+</script>
+
 </body>
 </html>
