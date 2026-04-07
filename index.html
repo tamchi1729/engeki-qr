@@ -36,20 +36,22 @@
 
 <script>
   const links = [
-    "https://www.instagram.com/nupals_engeki/", // 自分のインスタ（当たり）
-    "https://www.instagram.com/niigatayakka_nexus/",
-    "https://portal.gakuyu.nupals.ac.jp",
-    "https://nupals-gakuyu.info/about-us/"
+    "https://www.instagram.com/nupals_engeki/", // 演劇インスタ
+    "https://www.instagram.com/niigatayakka_nexus/",//eスポインスタ
+    "https://portal.gakuyu.nupals.ac.jp",//学友ポータル
+    "https://nupals-gakuyu.info/about-us/",//学友HP
+    "https://www.instagram.com/nupmlsshinyakusai/"//新薬祭インスタ
   ];
 
   // 当たり確率（ここ調整できる）
-  const weights = [0.4, 0.1, 0.1,0.4];
+  const weights = [0.35, 0.05, 0.1,0.3,0.2];
 
   const messages = [
     "私達とともに活動する運命なのだ！！",
     "貴方には演劇よりもっと良いサークルを紹介するよ！",
     "とりま入団申請なｗｗ",
-    "学友会に入るってのはどうよ！"
+    "学友会に入るってのはどうよ！",
+    "新薬祭を一緒に盛り上げませんか？"
   ];
 
   function weightedRandom(weights) {
